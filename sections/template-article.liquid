@@ -59,9 +59,9 @@
                         </div>
                     {% endfor %}
 
-                    {% if paginate.pages > 1 %}
-                        {{ paginate | default_pagination }}
-                    {% endif %}
+                     <div class="max-w-6xl mx-auto">
+                        {% render 'pagination', pagination: paginate %}
+                    </div>
                 {% endpaginate %}
             </div>
         {% else %}
@@ -161,9 +161,11 @@
     "publisher": {
         "@type": "Organization",
         "name": {{ shop.name | json }}
-    }
+    },
+    "url": "{{ article.url }}"
 }
 </script>
+
 {% schema %}
 {
     "name": "Template Article",
